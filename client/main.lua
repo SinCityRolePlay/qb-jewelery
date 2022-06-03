@@ -57,7 +57,7 @@ local function smashVitrine(k)
             job_table = {'police'}, 
             coords = data.coords,
             title = '10-17 - Suspicious Persons',
-            message = 'A suspicious '..data.sex..' near '..data.street..".", 
+            message = 'A suspicious '..data.sex..' near '..data.street.." (CAMERA ID: 31-34).", 
             flash = 1,
             unique_id = tostring(math.random(0000000,9999999)),
             blip = {
@@ -103,7 +103,7 @@ local function smashVitrine(k)
                     job_table = {'police'}, 
                     coords = data.coords,
                     title = '10-55 - Possible Robbery In Progress',
-                    message = 'Robbery in progress at '..data.street.." suspect is a " ..data.sex..".", 
+                    message = 'Robbery in progress at '..data.street.." suspect is a " ..data.sex.." (CAMERA ID: 31-34).", 
                     flash = 1,
                     unique_id = tostring(math.random(0000000,9999999)),
                     blip = {
