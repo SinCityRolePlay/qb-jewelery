@@ -102,7 +102,7 @@ local function smashVitrine(k)
                 TriggerServerEvent('cd_dispatch:AddNotification', {
                     job_table = {'police'}, 
                     coords = data.coords,
-                    title = '10-55 - Possible In Progress',
+                    title = '10-55 - Possible Robbery In Progress',
                     message = 'Robbery in progress at '..data.street.." suspect is a " ..data.sex..".", 
                     flash = 1,
                     unique_id = tostring(math.random(0000000,9999999)),
@@ -111,7 +111,7 @@ local function smashVitrine(k)
                         scale = 1.2, 
                         colour = 59,
                         flashes = true, 
-                        text = '10-55 - Possible In Progress',
+                        text = '10-55 - Possible Robbery In Progress',
                         time = (5*60*1000),
                         sound = 1,
                     }
