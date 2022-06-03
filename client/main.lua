@@ -51,7 +51,25 @@ end
 
 local function smashVitrine(k)
     if not firstAlarm then
-        TriggerServerEvent('police:server:policeAlert', 'Suspicious Activity')
+        --TriggerServerEvent('police:server:policeAlert', 'Suspicious Activity')
+        local data = exports['cd_dispatch']:GetPlayerInfo()
+        TriggerServerEvent('cd_dispatch:AddNotification', {
+            job_table = {'police'}, 
+            coords = data.coords,
+            title = '10-17 - Suspicious Persons',
+            message = 'A suspicious '..data.sex..' near '..data.street..".", 
+            flash = 1,
+            unique_id = tostring(math.random(0000000,9999999)),
+            blip = {
+                sprite = 58, 
+                scale = 1.2, 
+                colour = 59,
+                flashes = true, 
+                text = '10-17 - Suspicious Persons',
+                time = (5*60*1000),
+                sound = 1,
+            }
+        })
         firstAlarm = true
     end
 
@@ -79,7 +97,25 @@ local function smashVitrine(k)
                 TriggerServerEvent('qb-jewellery:server:setVitrineState', "isBusy", false, k)
                 TriggerServerEvent('qb-jewellery:server:vitrineReward')
                 TriggerServerEvent('qb-jewellery:server:setTimeout')
-                TriggerServerEvent('police:server:policeAlert', 'Robbery in progress')
+                --TriggerServerEvent('police:server:policeAlert', 'Robbery in progress')
+                local data = exports['cd_dispatch']:GetPlayerInfo()
+                TriggerServerEvent('cd_dispatch:AddNotification', {
+                    job_table = {'police'}, 
+                    coords = data.coords,
+                    title = '10-55 - Possible In Progress',
+                    message = 'Robbery in progress at '..data.street.." suspect is a " ..data.sex..".", 
+                    flash = 1,
+                    unique_id = tostring(math.random(0000000,9999999)),
+                    blip = {
+                        sprite = 58, 
+                        scale = 1.2, 
+                        colour = 59,
+                        flashes = true, 
+                        text = '10-55 - Possible In Progress',
+                        time = (5*60*1000),
+                        sound = 1,
+                    }
+                })
                 smashing = false
                 TaskPlayAnim(ped, animDict, "exit", 3.0, 3.0, -1, 2, 0, 0, 0, 0)
             end, function() -- Cancel
